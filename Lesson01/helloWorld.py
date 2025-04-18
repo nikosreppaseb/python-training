@@ -1,5 +1,5 @@
 greeting = "Hello"
-exclamation = " World !"
-      takis =' me lene taki'
-print(greeting + exclamation + takis)
+exclamation = " World!"
+name = "me lene taki"
+print(greeting + exclamation + name)
 
