@@ -1,3 +1,4 @@
-greeting = "Hello World!"
-print(greeting)
+greeting = "Hello"
+exclamation = " World !"
+print(greeting + exclamation)
 
