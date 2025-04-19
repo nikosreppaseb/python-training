@@ -68,3 +68,8 @@ print('Hello\vWorld') #Hello
 print('Hello\0World') #HelloWorld
 print('Hello\N{LATIN SMALL LETTER A}') #Hello
 print('Hello\U0001F600') #Hello 😀
+#Check type
+print(type(name) == str) #<class 'str'>
+# String assignment with constructor
+mike = str('Developer')
+print(mike) #Developer
