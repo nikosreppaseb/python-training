@@ -4,6 +4,12 @@
 import random 
 print(" ")
 userInput = input("Enter rock, paper, or scissors: \n")
+if(userInput != "rock" and userInput != "paper" and userInput != "scissors"):
+    print("Invalid input. Please enter rock, paper, or scissors.")
+    exit()
+print(" ")
+print(f"You chose: {userInput}")
+# Randomly select computer's choice
 choices = ["rock", "paper", "scissors"]
 computerInput = random.choice(choices)
 print(f"Computer chose: {computerInput}")
