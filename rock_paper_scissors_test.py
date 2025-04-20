@@ -9,26 +9,26 @@ from . import rock_paper_scissors as rps
 class TestRockPaperScissors(unittest.TestCase):
 
     def test_determine_winner_tie(self):
-        """Test determine_winner for tie scenarios."""
+        """Test Scenario 1: Tie scenarios."""
         self.assertEqual(rps.determine_winner("rock", "rock"), "It's a tie!")
         self.assertEqual(rps.determine_winner("paper", "paper"), "It's a tie!")
         self.assertEqual(rps.determine_winner("scissors", "scissors"), "It's a tie!")
 
     def test_determine_winner_user_wins(self):
-        """Test determine_winner for user win scenarios."""
+        """Test Scenario 2: User win scenarios."""
         self.assertEqual(rps.determine_winner("rock", "scissors"), "🎉🍾🥂🎉 You win!")
         self.assertEqual(rps.determine_winner("scissors", "paper"), "🎉🍾🥂🎉 You win!")
         self.assertEqual(rps.determine_winner("paper", "rock"), "🎉🍾🥂🎉 You win!")
 
     def test_determine_winner_computer_wins(self):
-        """Test determine_winner for computer win scenarios."""
+        """Test Scenario 3: Computer win scenarios."""
         self.assertEqual(rps.determine_winner("scissors", "rock"), "😜😜 You lose!")
         self.assertEqual(rps.determine_winner("paper", "scissors"), "😜😜 You lose!")
         self.assertEqual(rps.determine_winner("rock", "paper"), "😜😜 You lose!")
 
     @patch('random.choice')
     def test_get_computer_choice(self, mock_choice):
-        """Test get_computer_choice ensures a valid choice is returned."""
+        """Test Scenario 4: Get computer choice."""
         # Configure the mock to return a specific value
         mock_choice.return_value = "paper"
         self.assertEqual(rps.get_computer_choice(), "paper")
@@ -42,14 +42,14 @@ class TestRockPaperScissors(unittest.TestCase):
 
     @patch('builtins.input', side_effect=['rock'])
     def test_get_user_choice_valid(self, mock_input):
-        """Test get_user_choice with valid input."""
+        """Test Scenario 5: Get valid user choice."""
         self.assertEqual(rps.get_user_choice(), "rock")
         mock_input.assert_called_once() # Check input was called
 
     @patch('builtins.input', side_effect=['invalid', 'Spock', 'paper'])
     @patch('sys.stdout', new_callable=io.StringIO) # Capture print output
     def test_get_user_choice_invalid_then_valid(self, mock_stdout, mock_input):
-        """Test get_user_choice with invalid then valid input."""
+        """Test Scenario 6: Get user choice (invalid then valid)."""
         expected_error_message = f"Invalid input. Please enter one of: {', '.join(rps.VALID_CHOICES)}.\n"
 
         choice = rps.get_user_choice()
@@ -67,7 +67,7 @@ class TestRockPaperScissors(unittest.TestCase):
     @patch('python_training.rock_paper_scissors.determine_winner')
     @patch('sys.stdout', new_callable=io.StringIO) # Capture print output
     def test_play_game_flow(self, mock_stdout, mock_determine_winner, mock_comp_choice, mock_user_choice):
-        """Test the main play_game function flow."""
+        """Test Scenario 7: Main game flow."""
         # Configure the mock for determine_winner
         mock_determine_winner.return_value = "Mocked Win Result"
 
